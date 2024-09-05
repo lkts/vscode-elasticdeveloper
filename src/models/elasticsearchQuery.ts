@@ -160,7 +160,7 @@ export class ElasticsearchQuery extends Entity {
 
     public addBody(value:string) {
 
-        value = this.stringifySearchTemplateSource(value);
+        value = this.command === '_render/template' ? this.stringifySearchTemplateSource(value) : value;
 
         if(!this.hasBody) {
             this.body = value;
